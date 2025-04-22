@@ -236,14 +236,6 @@ export default function CombatRoboticsProject() {
         <div className="grid gap-4 md:grid-cols-2">
           <div className="relative aspect-video overflow-hidden rounded-lg">
             <Image
-              src="https://zmtbsodvdekwtp1d.public.blob.vercel-storage.com/IMG_1098-ejnmDQhHyZSADYarJih3glW7XSCub1.MOV"
-              alt="SPIN-N-OUT"
-              fill
-              className="object-contain bg-background"
-            />
-          </div>
-          <div className="relative aspect-video overflow-hidden rounded-lg">
-            <Image
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-04-09%20at%201.47.43%E2%80%AFPM-KgEa1Z6NZzbMbLwLsqQRDKYwMGw6u7.png"
               alt="Beta Freak"
               fill
