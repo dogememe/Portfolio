@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --border: 214.3 31.8% 91.4%;
+    /* ... other variables ... */
+  }
+
+  .dark {
+    --border: 217.2 32.6% 27.5%;
+    /* ... other variables ... */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    /* ... existing styles ... */
+  }
+}
+
+/* Add this new style for card borders */
+.card {
+  @apply border-2 border-border transition-all duration-300;
+}
+
+.card:hover {
+  @apply border-primary shadow-lg;
+  box-shadow: 0 0 15px 5px hsl(var(--primary) / 0.2);
+}
+
+.dark .card:hover {
+  box-shadow: 0 0 15px 5px hsl(var(--primary) / 0.5);
+}
