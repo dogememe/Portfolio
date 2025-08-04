@@ -112,6 +112,29 @@ export default function Home() {
             </Link>
           </Card>
 
+          {/* Wind Tunnel Translation Project - NEW */}
+          <Card className="overflow-hidden border-2 transition-all duration-300 hover:border-primary hover:shadow-lg dark:hover:shadow-primary/50 hover:shadow-primary/20">
+            <Link href="/wind-tunnel-translation">
+              <div className="relative aspect-video">
+                <Image
+                  src="/placeholder.svg?height=400&width=600"
+                  alt="Wind Tunnel Translation Project"
+                  fill
+                  className="object-cover transition-transform duration-300 hover:scale-105"
+                />
+              </div>
+              <CardHeader>
+                <CardTitle>Wind Tunnel Translation Project</CardTitle>
+                <CardDescription>Automated Translation System</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground">
+                  Developed an automated translation system for wind tunnel testing equipment.
+                </p>
+              </CardContent>
+            </Link>
+          </Card>
+
           {/* Combat Robotics Project - NEW */}
           <Card className="overflow-hidden border-2 transition-all duration-300 hover:border-primary hover:shadow-lg dark:hover:shadow-primary/50 hover:shadow-primary/20">
             <Link href="/combat-robotics">

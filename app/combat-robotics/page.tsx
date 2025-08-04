@@ -185,7 +185,7 @@ export default function CombatRoboticsProject() {
               <iframe
                 width="100%"
                 height="100%"
-                src="https://youtu.be/xaxCcigFOhU"
+                src="https://www.youtube.com/embed/xaxCcigFOhU"
                 title="First Drive"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
