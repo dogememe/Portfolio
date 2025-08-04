@@ -5,7 +5,6 @@ import { Inter } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
 import { ThemeToggle } from "@/components/ui/theme-toggle"
 import { Analytics } from "@vercel/analytics/react"
-import { Suspense } from "react"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -26,7 +25,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
             <div className="container flex h-14 items-center">
-              <nav className="flex items-center space-x-4 lg:space-x-6">
+              <nav className="flex items-center  space-x-4 lg:space-x-6">
                 <Link href="/#home" className="text-sm ml-5 font-medium transition-colors hover:text-primary">
                   Home
                 </Link>
@@ -41,18 +40,16 @@ export default function RootLayout({
                 </Link>
               </nav>
               <div className="ml-auto flex items-center space-x-4">
-                <Suspense fallback={<div className="h-10 w-10"></div>}>
-                  <ThemeToggle />
-                </Suspense>
+                <ThemeToggle />
               </div>
             </div>
           </header>
-          <main>
-            <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
-          </main>
+          <main>{children}</main>
           <Analytics />
         </ThemeProvider>
       </body>
     </html>
   )
 }
+
+import "./globals.css"

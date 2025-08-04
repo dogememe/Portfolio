@@ -39,13 +39,14 @@ export default function CombatRoboticsProject() {
                 In the Duke combat robotics club I have designed and competed multiple robots
               </p>
               <p className="text-muted-foreground">
-                I love to build these little robots!  I've been gettign better and making them compact but still good fighters!
+                I love to build these little robots! I've been gettign better and making them compact but still good
+                fighters!
               </p>
             </div>
           </CardContent>
         </Card>
 
-  {/* Design Inspiration for Spin-n-out */}
+        {/* Design Inspiration for Spin-n-out */}
         <Card className="mb-8">
           <CardHeader>
             <CardTitle>Spin-n-out</CardTitle>
@@ -54,7 +55,8 @@ export default function CombatRoboticsProject() {
           <CardContent>
             <div className="mb-2 space-y-4">
               <p className="text-muted-foreground">
-                This is my first melty-brain robot: Spin-N-Out.  It spins really fast and uses the whole robot as a weapon.  It is going to destroy other robots or itself...
+                This is my first melty-brain robot: Spin-N-Out. It spins really fast and uses the whole robot as a
+                weapon. It is going to destroy other robots or itself...
               </p>
             </div>
             <div className="grid gap-6 md:grid-cols-2">
@@ -89,8 +91,6 @@ export default function CombatRoboticsProject() {
           </CardContent>
         </Card>
 
-
-
         {/* Design Inspiration */}
         <Card className="mb-8">
           <CardHeader>
@@ -98,9 +98,11 @@ export default function CombatRoboticsProject() {
             <CardDescription>Vertical spinner</CardDescription>
           </CardHeader>
           <CardContent>
-          <div className="mb-2 space-y-4">
+            <div className="mb-2 space-y-4">
               <p className="text-muted-foreground">
-                This is my second vertical spinner robot.  Beta's predecessor, Alpha Freak, was similair but had a poorly designed drive system.  Beta freak aimed to fix that by having four wheel drive and in the process also gained a grade 5 titanium wedge to protect against horizontal spinners
+                This is my second vertical spinner robot. Beta's predecessor, Alpha Freak, was similair but had a poorly
+                designed drive system. Beta freak aimed to fix that by having four wheel drive and in the process also
+                gained a grade 5 titanium wedge to protect against horizontal spinners
               </p>
             </div>
             <div className="grid gap-6 md:grid-cols-2">
@@ -134,7 +136,6 @@ export default function CombatRoboticsProject() {
             </div>
           </CardContent>
         </Card>
-
 
         {/* More specs */}
         <Card className="mb-8">
@@ -180,21 +181,21 @@ export default function CombatRoboticsProject() {
             <CardDescription>Initial Testing and Performance Evaluation</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="aspect-video w-full rounded-lg overflow-hidden bg-muted flex items-center justify-center">
-              <video
-                controls
-                className="w-full h-full object-cover"
-              >
-                <source src="https://zmtbsodvdekwtp1d.public.blob.vercel-storage.com/IMG_1098-ejnmDQhHyZSADYarJih3glW7XSCub1.MOV" type="video/quicktime" />
-                Your browser does not support the video tag.
-              </video>
+            <div className="aspect-video w-full rounded-lg overflow-hidden">
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://youtu.be/xaxCcigFOhU"
+                title="First Drive"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full"
+              ></iframe>
             </div>
-            <p className="mt-4 text-muted-foreground">
-              It is fast!
-            </p>
+            <p className="mt-4 text-muted-foreground">First drive test of the combat robot!</p>
           </CardContent>
         </Card>
-
 
         {/* Design Considerations */}
         <Card className="mb-8">
@@ -207,22 +208,25 @@ export default function CombatRoboticsProject() {
               <div>
                 <h3 className="mb-2 font-semibold">Weapon System Optimization</h3>
                 <p className="text-muted-foreground">
-                  I have made all my weapons from AR500 steel, ordered from Send Cut Send.  AR500 is an exceptional weapon material becuase of its strength, hardness, and high weight.  Ar500 hits hard!
+                  I have made all my weapons from AR500 steel, ordered from Send Cut Send. AR500 is an exceptional
+                  weapon material becuase of its strength, hardness, and high weight. Ar500 hits hard!
                 </p>
               </div>
               <Separator />
               <div>
                 <h3 className="mb-2 font-semibold">Drive System Reliability</h3>
                 <p className="text-muted-foreground">
-                  For all of my wheels i have used O-rings on PLA.  PLA is easy to print, and the O ring provide plenty of grip for fast driving
+                  For all of my wheels i have used O-rings on PLA. PLA is easy to print, and the O ring provide plenty
+                  of grip for fast driving
                 </p>
               </div>
               <Separator />
               <div>
                 <h3 className="mb-2 font-semibold">Manufacturing Method</h3>
                 <p className="text-muted-foreground">
-                  The robot is primarily constructed using 3D printed TPU components with PLA 3D prints for parts that will not get damages easily
-                  The TPu frame makes the robot rigid enough to be functional, but soft so it can absorb impacts.  My robots were printed on my Bambu P1S
+                  The robot is primarily constructed using 3D printed TPU components with PLA 3D prints for parts that
+                  will not get damages easily The TPu frame makes the robot rigid enough to be functional, but soft so
+                  it can absorb impacts. My robots were printed on my Bambu P1S
                 </p>
               </div>
             </div>

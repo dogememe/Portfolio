@@ -275,8 +275,6 @@ export default function UAVProject() {
               className="object-cover"
             />
           </div>
-          
-          
         </div>
       </section>
     </div>

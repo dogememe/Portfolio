@@ -10,10 +10,8 @@ export default function Home() {
       {/* Hero Section */}
       <section id="home" className="container mx-auto px-4 py-24 md:py-32">
         <div className="flex flex-col items-center text-center">
-          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
-            <span className="bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent inline-block">
-              Niko Weaver
-            </span>
+          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
+            Niko Weaver
           </h1>
           <p className="mt-4 text-xl text-muted-foreground">Mechanical Engineering Student at Duke University</p>
           <div className="mt-6 flex gap-4">
@@ -131,6 +129,13 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-muted-foreground">See my robots for Duke Combat robotics club!</p>
+                <Image
+                  src="https://combatrobotics.wiki.duke.edu/images/2/2d/LOGO_-_Combat_Robotics.png"
+                  alt="Duke Robotics Club Logo"
+                  width={150}
+                  height={150}
+                  className="mt-2 mr-auto"
+                />
               </CardContent>
             </Link>
           </Card>
