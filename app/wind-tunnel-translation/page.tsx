@@ -3,190 +3,219 @@
 import { ArrowLeft } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
 function GLBViewer() {
   const mountRef = useRef<HTMLDivElement>(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
   const cleanupRef = useRef<(() => void) | null>(null)
 
   useEffect(() => {
     if (!mountRef.current) return
 
-    // Load Three.js from CDN
-    const loadThreeJS = async () => {
-      // Load Three.js core
-      if (!(window as any).THREE) {
+    const loadScript = (src: string): Promise<void> => {
+      return new Promise((resolve, reject) => {
+        if (document.querySelector(`script[src="${src}"]`)) {
+          resolve()
+          return
+        }
+
         const script = document.createElement("script")
-        script.src = "https://cdnjs.cloudflare.com/ajax/libs/three.js/r158/three.min.js"
+        script.src = src
+        script.onload = () => resolve()
+        script.onerror = () => reject(new Error(`Failed to load script: ${src}`))
         document.head.appendChild(script)
-
-        await new Promise((resolve) => {
-          script.onload = resolve
-        })
-      }
-
-      // Load GLTFLoader
-      if (!(window as any).GLTFLoader) {
-        const gltfScript = document.createElement("script")
-        gltfScript.src = "https://cdn.jsdelivr.net/npm/three@0.158.0/examples/js/loaders/GLTFLoader.js"
-        document.head.appendChild(gltfScript)
-
-        await new Promise((resolve) => {
-          gltfScript.onload = resolve
-        })
-      }
-
-      // Load OrbitControls
-      if (!(window as any).OrbitControls) {
-        const controlsScript = document.createElement("script")
-        controlsScript.src = "https://cdn.jsdelivr.net/npm/three@0.158.0/examples/js/controls/OrbitControls.js"
-        document.head.appendChild(controlsScript)
-
-        await new Promise((resolve) => {
-          controlsScript.onload = resolve
-        })
-      }
-
-      initViewer()
+      })
     }
 
-    const initViewer = () => {
-      if (!mountRef.current) return
+    const initViewer = async () => {
+      try {
+        // Load Three.js core
+        await loadScript("https://unpkg.com/three@0.158.0/build/three.min.js")
 
-      const THREE = (window as any).THREE
-      const GLTFLoader = (window as any).THREE.GLTFLoader
-      const OrbitControls = (window as any).THREE.OrbitControls
+        // Load additional modules
+        await loadScript("https://unpkg.com/three@0.158.0/examples/js/loaders/GLTFLoader.js")
+        await loadScript("https://unpkg.com/three@0.158.0/examples/js/controls/OrbitControls.js")
 
-      // Scene setup
-      const scene = new THREE.Scene()
-      scene.background = new THREE.Color(0xf5f5f5)
-
-      // Camera setup
-      const camera = new THREE.PerspectiveCamera(
-        75,
-        mountRef.current.clientWidth / mountRef.current.clientHeight,
-        0.1,
-        1000,
-      )
-      camera.position.set(5, 5, 5)
-
-      // Renderer setup
-      const renderer = new THREE.WebGLRenderer({ antialias: true })
-      renderer.setSize(mountRef.current.clientWidth, mountRef.current.clientHeight)
-      renderer.shadowMap.enabled = true
-      renderer.shadowMap.type = THREE.PCFSoftShadowMap
-      mountRef.current.appendChild(renderer.domElement)
-
-      // Controls
-      const controls = new OrbitControls(camera, renderer.domElement)
-      controls.enableDamping = true
-      controls.dampingFactor = 0.05
-      controls.enableZoom = true
-      controls.enablePan = true
-
-      // Lighting
-      const ambientLight = new THREE.AmbientLight(0x404040, 0.6)
-      scene.add(ambientLight)
-
-      const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8)
-      directionalLight.position.set(10, 10, 5)
-      directionalLight.castShadow = true
-      scene.add(directionalLight)
-
-      const directionalLight2 = new THREE.DirectionalLight(0xffffff, 0.4)
-      directionalLight2.position.set(-10, -10, -5)
-      scene.add(directionalLight2)
-
-      // Load GLB model
-      const loader = new GLTFLoader()
-      loader.load(
-        "https://zmtbsodvdekwtp1d.public.blob.vercel-storage.com/master_asm.glb",
-        (gltf) => {
-          const model = gltf.scene
-
-          // Enable shadows for all meshes
-          model.traverse((child) => {
-            if (child.isMesh) {
-              child.castShadow = true
-              child.receiveShadow = true
-            }
-          })
-
-          // Center and scale the model
-          const box = new THREE.Box3().setFromObject(model)
-          const center = box.getCenter(new THREE.Vector3())
-          const size = box.getSize(new THREE.Vector3())
-
-          // Scale model to fit in view
-          const maxDim = Math.max(size.x, size.y, size.z)
-          const scale = 4 / maxDim
-          model.scale.setScalar(scale)
-
-          // Center the model
-          model.position.sub(center.multiplyScalar(scale))
-
-          scene.add(model)
-
-          // Adjust camera position based on model size
-          const distance = maxDim * scale * 1.5
-          camera.position.set(distance, distance, distance)
-          camera.lookAt(0, 0, 0)
-          controls.update()
-        },
-        (progress) => {
-          console.log("Loading progress:", (progress.loaded / progress.total) * 100 + "%")
-        },
-        (error) => {
-          console.error("Error loading GLB model:", error)
-        },
-      )
-
-      // Animation loop
-      let animationId: number
-      const animate = () => {
-        animationId = requestAnimationFrame(animate)
-        controls.update()
-        renderer.render(scene, camera)
-      }
-      animate()
-
-      // Handle resize
-      const handleResize = () => {
         if (!mountRef.current) return
 
+        const THREE = (window as any).THREE
+
+        if (!THREE) {
+          throw new Error("Three.js failed to load")
+        }
+
+        // Scene setup
+        const scene = new THREE.Scene()
+        scene.background = new THREE.Color(0xf8f9fa)
+
+        // Camera setup
         const width = mountRef.current.clientWidth
         const height = mountRef.current.clientHeight
+        const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000)
+        camera.position.set(10, 10, 10)
 
-        camera.aspect = width / height
-        camera.updateProjectionMatrix()
+        // Renderer setup
+        const renderer = new THREE.WebGLRenderer({
+          antialias: true,
+          alpha: true,
+        })
         renderer.setSize(width, height)
-      }
+        renderer.setPixelRatio(window.devicePixelRatio)
+        renderer.shadowMap.enabled = true
+        renderer.shadowMap.type = THREE.PCFSoftShadowMap
+        renderer.outputColorSpace = THREE.SRGBColorSpace
 
-      window.addEventListener("resize", handleResize)
+        mountRef.current.appendChild(renderer.domElement)
 
-      // Store cleanup function
-      cleanupRef.current = () => {
-        window.removeEventListener("resize", handleResize)
+        // Controls
+        const controls = new THREE.OrbitControls(camera, renderer.domElement)
+        controls.enableDamping = true
+        controls.dampingFactor = 0.05
+        controls.screenSpacePanning = false
+        controls.minDistance = 1
+        controls.maxDistance = 100
 
-        if (animationId) {
-          cancelAnimationFrame(animationId)
+        // Lighting setup
+        const ambientLight = new THREE.AmbientLight(0x404040, 1.2)
+        scene.add(ambientLight)
+
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 1)
+        directionalLight.position.set(20, 20, 20)
+        directionalLight.castShadow = true
+        directionalLight.shadow.mapSize.width = 2048
+        directionalLight.shadow.mapSize.height = 2048
+        scene.add(directionalLight)
+
+        const directionalLight2 = new THREE.DirectionalLight(0xffffff, 0.5)
+        directionalLight2.position.set(-20, -20, -20)
+        scene.add(directionalLight2)
+
+        // Add a ground plane for reference
+        const groundGeometry = new THREE.PlaneGeometry(50, 50)
+        const groundMaterial = new THREE.MeshLambertMaterial({
+          color: 0xcccccc,
+          transparent: true,
+          opacity: 0.3,
+        })
+        const ground = new THREE.Mesh(groundGeometry, groundMaterial)
+        ground.rotation.x = -Math.PI / 2
+        ground.position.y = -5
+        ground.receiveShadow = true
+        scene.add(ground)
+
+        // Load GLB model
+        const loader = new THREE.GLTFLoader()
+
+        loader.load(
+          "https://zmtbsodvdekwtp1d.public.blob.vercel-storage.com/master_asm.glb",
+          (gltf) => {
+            console.log("Model loaded successfully", gltf)
+            const model = gltf.scene
+
+            // Enable shadows
+            model.traverse((child) => {
+              if (child.isMesh) {
+                child.castShadow = true
+                child.receiveShadow = true
+
+                // Ensure materials are visible
+                if (child.material) {
+                  if (Array.isArray(child.material)) {
+                    child.material.forEach((mat) => {
+                      mat.needsUpdate = true
+                    })
+                  } else {
+                    child.material.needsUpdate = true
+                  }
+                }
+              }
+            })
+
+            // Get bounding box and center the model
+            const box = new THREE.Box3().setFromObject(model)
+            const center = box.getCenter(new THREE.Vector3())
+            const size = box.getSize(new THREE.Vector3())
+
+            // Scale model to reasonable size
+            const maxDim = Math.max(size.x, size.y, size.z)
+            const scale = 8 / maxDim
+            model.scale.setScalar(scale)
+
+            // Center the model
+            model.position.sub(center.multiplyScalar(scale))
+
+            scene.add(model)
+
+            // Position camera to view the model
+            const distance = maxDim * scale * 1.5
+            camera.position.set(distance, distance * 0.8, distance)
+            camera.lookAt(0, 0, 0)
+            controls.update()
+
+            setLoading(false)
+          },
+          (progress) => {
+            console.log("Loading progress:", (progress.loaded / progress.total) * 100 + "%")
+          },
+          (error) => {
+            console.error("Error loading GLB model:", error)
+            setError("Failed to load 3D model")
+            setLoading(false)
+          },
+        )
+
+        // Animation loop
+        let animationId: number
+        const animate = () => {
+          animationId = requestAnimationFrame(animate)
+          controls.update()
+          renderer.render(scene, camera)
+        }
+        animate()
+
+        // Handle resize
+        const handleResize = () => {
+          if (!mountRef.current) return
+
+          const newWidth = mountRef.current.clientWidth
+          const newHeight = mountRef.current.clientHeight
+
+          camera.aspect = newWidth / newHeight
+          camera.updateProjectionMatrix()
+          renderer.setSize(newWidth, newHeight)
         }
 
-        if (mountRef.current && renderer.domElement) {
-          mountRef.current.removeChild(renderer.domElement)
-        }
+        window.addEventListener("resize", handleResize)
 
-        renderer.dispose()
-        scene.clear()
+        // Store cleanup function
+        cleanupRef.current = () => {
+          window.removeEventListener("resize", handleResize)
+
+          if (animationId) {
+            cancelAnimationFrame(animationId)
+          }
+
+          if (mountRef.current && renderer.domElement && mountRef.current.contains(renderer.domElement)) {
+            mountRef.current.removeChild(renderer.domElement)
+          }
+
+          renderer.dispose()
+          scene.clear()
+        }
+      } catch (err) {
+        console.error("Error initializing viewer:", err)
+        setError("Failed to initialize 3D viewer")
+        setLoading(false)
       }
     }
 
-    loadThreeJS().catch(console.error)
+    initViewer()
 
-    // Cleanup on unmount
     return () => {
       if (cleanupRef.current) {
         cleanupRef.current()
@@ -194,10 +223,32 @@ function GLBViewer() {
     }
   }, [])
 
+  if (loading) {
+    return (
+      <div className="w-full h-full min-h-[400px] rounded-lg overflow-hidden bg-muted flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto mb-4"></div>
+          <p className="text-muted-foreground">Loading 3D model...</p>
+        </div>
+      </div>
+    )
+  }
+
+  if (error) {
+    return (
+      <div className="w-full h-full min-h-[400px] rounded-lg overflow-hidden bg-muted flex items-center justify-center">
+        <div className="text-center">
+          <p className="text-red-500 mb-2">Error loading 3D model</p>
+          <p className="text-muted-foreground text-sm">{error}</p>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div
       ref={mountRef}
-      className="w-full h-full min-h-[400px] rounded-lg overflow-hidden"
+      className="w-full h-full min-h-[400px] rounded-lg overflow-hidden bg-muted"
       style={{ aspectRatio: "16/9" }}
     />
   )
@@ -360,7 +411,7 @@ export default function WindTunnelTranslationProject() {
             <CardDescription>Interactive model of the translation mechanism</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="aspect-video w-full rounded-lg overflow-hidden bg-muted">
+            <div className="aspect-video w-full rounded-lg overflow-hidden">
               <GLBViewer />
             </div>
             <p className="mt-4 text-muted-foreground text-sm">
