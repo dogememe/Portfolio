@@ -22,8 +22,8 @@ export default function UnderwaterROVProject() {
 
         {/* Project Header */}
         <div className="mb-12">
-          <h1 className="text-4xl font-bold tracking-tighter">Underwater ROV</h1>
-          <p className="mt-4 text-xl text-muted-foreground">Duke Robotics Club - 2025 RoboSub Competition MiniBot</p>
+          <h1 className="text-4xl font-bold tracking-tighter">Underwater ROV  | Meet Crush!</h1>
+          <p className="mt-4 text-xl text-muted-foreground">{"Duke Robotics Club - 2025 RoboSub Competition Finalists!"}</p>
         </div>
 
         {/* Main Project Image */}
@@ -41,20 +41,16 @@ export default function UnderwaterROVProject() {
         <Card className="mb-8">
           <CardHeader>
             <CardTitle>Project Overview</CardTitle>
-            <CardDescription>Minibot Delevopment!</CardDescription>
+            <CardDescription>Crush Delevopment!</CardDescription>
           </CardHeader>
           <CardContent>
             <p className="text-muted-foreground">
-              Contributed to the development of an autonomous underwater ROV for the 2025 RoboSub competition. The robot
-              (Minibot) is designed to operate independently underwater, completing various competition tasks through
-              autonomous navigation and control in the annual RoboSub competition.
+              I Contributed to the development of an autonomous underwater ROV for the 2025 RoboSub competition, Crush. Crush is designed to operate independently underwater, completing various competition tasks through autonomous navigation and control in the annual RoboSub competition.
             </p>
             <div className="mt-4">
-              <h3 className="mb-2 font-semibold">Current Development</h3>
+              <h3 className="mb-2 font-semibold">Current Developments</h3>
               <p className="text-muted-foreground">
-                We are currently working on an outer case for the Minibot to further optimize its hydrodynamics by
-                enclosing the two capsules. This enhancement will improve the ROV's underwater performance and
-                efficiency.
+                As the chief engineer coming into the 2025, I plan to add a seventh thruster to crush for enable pitch control, and also add a case to optimize for forward movement.                            
               </p>
             </div>
           </CardContent>
@@ -130,7 +126,7 @@ export default function UnderwaterROVProject() {
                 </ul>
               </div>
               <div>
-                <h3 className="mb-2 font-semibold">General Performance Features of the minibot</h3>
+                <h3 className="mb-2 font-semibold">General Performance Features of Crush </h3>
                 <ul className="list-inside list-disc space-y-2 text-muted-foreground">
                   <li>Hydrodynamically optimized frame</li>
                   <li>Six thrusters for Three-axis translation </li>

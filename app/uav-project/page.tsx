@@ -30,13 +30,38 @@ export default function UAVProject() {
         {/* Main Project Image */}
         <div className="relative mb-12 aspect-video w-full overflow-hidden rounded-lg">
           <Image
-            src="https://zmtbsodvdekwtp1d.public.blob.vercel-storage.com/MEANplane-9foCGITCMtA6VftelewOyb8mksWmFR.png"
+            src="https://zmtbsodvdekwtp1d.public.blob.vercel-storage.com/IMG_1814.JPG"
             alt="UAV Design"
             fill
             className="object-cover"
             priority
           />
         </div>
+
+        {/* Flight #1 Section */}
+        <Card className="mb-8">
+          <CardHeader>
+            <CardTitle>Flight #1</CardTitle>
+            <CardDescription>{"Rest in pieces!"}</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p className="text-muted-foreground mb-4">
+              {"Unfortunately, the first flight did not go as planned.  The EDFs did not have the thrust I expected, so the UAV could not accelerate quickly enough to take flight.  Fortunately, every system independly worked, so version two will be ready soon!"}                                                      
+            </p>
+            <div className="aspect-video w-full rounded-lg overflow-hidden">
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/LX8s9WZDFeg"
+                title="Flight #1 Test Flight"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full"
+              ></iframe>
+            </div>
+          </CardContent>
+        </Card>
 
         {/* Project Mission - New Section */}
         <Card className="mb-8">
@@ -56,8 +81,7 @@ export default function UAVProject() {
                 <li>Integrate a payload bay for sensor carrying or remote payload deployment </li>
               </ul>
               <p className="text-muted-foreground">
-                I love to push the boundaries of my skills, and this is a great project to do so! I hope to finish the
-                plan by mid-summer 2025, and fly it back at Duke once fall semester 2025 starts!
+                I love to push the boundaries of my skills, and this is a great project to do so! I flew the UAV first in the summer of 2025 and plan fly it back at Duke during fall semester 2025.        
               </p>
             </div>
           </CardContent>

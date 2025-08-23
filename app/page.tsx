@@ -94,7 +94,7 @@ export default function Home() {
             <Link href="/uav-project">
               <div className="relative aspect-video">
                 <Image
-                  src="https://zmtbsodvdekwtp1d.public.blob.vercel-storage.com/MEANplane-9foCGITCMtA6VftelewOyb8mksWmFR.png"
+                  src="https://zmtbsodvdekwtp1d.public.blob.vercel-storage.com/IMG_1814.JPG"
                   alt="UAV Design"
                   fill
                   className="object-cover transition-transform duration-300 hover:scale-105"
@@ -112,58 +112,7 @@ export default function Home() {
             </Link>
           </Card>
 
-          {/* Wind Tunnel Translation Project - NEW */}
-          <Card className="overflow-hidden border-2 transition-all duration-300 hover:border-primary hover:shadow-lg dark:hover:shadow-primary/50 hover:shadow-primary/20">
-            <Link href="/wind-tunnel-translation">
-              <div className="relative aspect-video">
-                <Image
-                  src="/placeholder.svg?height=400&width=600"
-                  alt="Wind Tunnel Translation Project"
-                  fill
-                  className="object-cover transition-transform duration-300 hover:scale-105"
-                />
-              </div>
-              <CardHeader>
-                <CardTitle>Wind Tunnel Translation Project</CardTitle>
-                <CardDescription>Automated Translation System</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">
-                  Developed an automated translation system for wind tunnel testing equipment.
-                </p>
-              </CardContent>
-            </Link>
-          </Card>
-
-          {/* Combat Robotics Project - NEW */}
-          <Card className="overflow-hidden border-2 transition-all duration-300 hover:border-primary hover:shadow-lg dark:hover:shadow-primary/50 hover:shadow-primary/20">
-            <Link href="/combat-robotics">
-              <div className="relative aspect-video">
-                <Image
-                  src="https://zmtbsodvdekwtp1d.public.blob.vercel-storage.com/Screenshot%202025-04-09%20at%201.53.02%E2%80%AFPM-8in5uhFdWVSg6MwfOb4OWQhSUhgjyh.png"
-                  alt="Combat Robot"
-                  fill
-                  className="object-cover transition-transform duration-300 hover:scale-105"
-                />
-              </div>
-              <CardHeader>
-                <CardTitle>Combat Robotics</CardTitle>
-                <CardDescription>SPIN-N-OUT Battle Bot</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">See my robots for Duke Combat robotics club!</p>
-                <Image
-                  src="https://combatrobotics.wiki.duke.edu/images/2/2d/LOGO_-_Combat_Robotics.png"
-                  alt="Duke Robotics Club Logo"
-                  width={150}
-                  height={150}
-                  className="mt-2 mr-auto"
-                />
-              </CardContent>
-            </Link>
-          </Card>
-
-          {/* Underwater ROV Project */}
+          {/* Underwater AUV Project */}
           <Card className="overflow-hidden border-2 transition-all duration-300 hover:border-primary hover:shadow-lg dark:hover:shadow-primary/50 hover:shadow-primary/20">
             <Link href="/underwater-rov">
               <div className="relative aspect-video">
@@ -189,6 +138,34 @@ export default function Home() {
                   width={500}
                   height={70}
                   className="mt-2"
+                />
+              </CardContent>
+            </Link>
+          </Card>
+
+          {/* Combat Robotics Project */}
+          <Card className="overflow-hidden border-2 transition-all duration-300 hover:border-primary hover:shadow-lg dark:hover:shadow-primary/50 hover:shadow-primary/20">
+            <Link href="/combat-robotics">
+              <div className="relative aspect-video">
+                <Image
+                  src="https://zmtbsodvdekwtp1d.public.blob.vercel-storage.com/Screenshot%202025-04-09%20at%201.53.02%E2%80%AFPM-8in5uhFdWVSg6MwfOb4OWQhSUhgjyh.png"
+                  alt="Combat Robot"
+                  fill
+                  className="object-cover transition-transform duration-300 hover:scale-105"
+                />
+              </div>
+              <CardHeader>
+                <CardTitle>Combat Robotics</CardTitle>
+                <CardDescription>SPIN-N-OUT Battle Bot</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground">See my robots for Duke Combat robotics club!</p>
+                <Image
+                  src="https://combatrobotics.wiki.duke.edu/images/2/2d/LOGO_-_Combat_Robotics.png"
+                  alt="Duke Robotics Club Logo"
+                  width={150}
+                  height={150}
+                  className="mt-2 mr-auto"
                 />
               </CardContent>
             </Link>
