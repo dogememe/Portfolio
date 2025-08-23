@@ -73,8 +73,8 @@ export default function Home() {
               Aerospace and Robotics! I love to play Guitar, Ski and build Rockets
             </p>
             <p className="mt-4 text-lg text-muted-foreground">
-              I'm a very curious person, and I always love to learn new things. Right now I'm working on my UAV project,
-              and I hope to be able to fly it buy the end of the summer!
+              I'm a very curious person, and I always love to learn new things. Right now I'm working on my UAV project
+              and have one flight in the books!
             </p>
             <div className="mt-6">
               <Button asChild>
@@ -229,7 +229,7 @@ export default function Home() {
             <Button className="flex items-center gap-2">
               <Download className="h-4 w-4" />
               <a
-                href="https://drive.google.com/file/d/1eqOs-Jw5TsBsvb1wSrUakJbZDGYqQx3X/view?usp=sharing"
+                href="https://drive.google.com/file/d/1d2OFM8HKAMxMuZhgnBw4-9NqP2V0vR_5/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 download
@@ -239,8 +239,13 @@ export default function Home() {
             </Button>
           </div>
           <p className="mb-4">
-            <a href="mailto:nikoweaver@gmail.com" className="text-primary hover:underline">
-              nikoweaver@gmail.com
+            <a
+              href="https://linkedin.com/in/niko-weaver"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:underline"
+            >
+              linkedin.com/in/niko-weaver
             </a>{" "}
             |
             <a href="tel:+16178521905" className="text-primary hover:underline">
@@ -248,14 +253,9 @@ export default function Home() {
               +1 (617) 852-1905
             </a>{" "}
             |
-            <a
-              href="https://linkedin.com/in/niko-weaver"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary hover:underline"
-            >
+            <a href="mailto:nikoweaver@gmail.com" className="text-primary hover:underline">
               {" "}
-              linkedin.com/in/niko-weaver
+              nikoweaver@gmail.com
             </a>
           </p>
 
@@ -263,89 +263,93 @@ export default function Home() {
           <h3 className="text-xl font-medium">Duke University, Durham NC</h3>
           <p className="italic mb-2">Expected Spring 2028</p>
           <ul className="list-disc list-inside mb-4">
-            <li>
-              Bachelor of Science in Engineering, Major in Mechanical Engineering, Minor in Math, Aerospace Certificate
-            </li>
-            <li>Relevant Coursework: Mechanics of Solids, Multivariable Calculus, Engineering Innovation</li>
+            <li>Bachelor of Science in Engineering</li>
+            <li>Major in Mechanical Engineering, Minor in Math, Aerospace Certificate</li>
+            <li>Relevant Coursework: Thermodynamics, Differential equations, Properties of solids</li>
           </ul>
 
           <h3 className="text-xl font-medium">Waterford School, Sandy UT</h3>
           <p className="italic mb-2">August 2020 - June 2024</p>
           <ul className="list-disc list-inside mb-4">
-            <li>High School Diploma, Summa Cum Laude, 3.95 GPA</li>
-            <li>FRC 2024 Idaho Regional Quality Award</li>
-            <li>Science Olympiad 2024 Utah State Champions</li>
-          </ul>
-
-          <h2 className="text-2xl font-semibold mt-6 mb-2">Experience</h2>
-          <h3 className="text-xl font-medium">Freelance Engineer, Self-Employed</h3>
-          <p className="italic mb-2">Summer 2024 - Present</p>
-          <ul className="list-disc list-inside mb-4">
-            <li>
-              Autodesk Fusion and FDM 3D printing were used to validate a product before being launched for large-scale
-              manufacturing. Provided a working prototype to the client in under 2 weeks.
-            </li>
-          </ul>
-
-          <h3 className="text-xl font-medium">Intern, University of Utah Chemical Engineering Department</h3>
-          <p className="italic mb-2">Summer 2023</p>
-          <ul className="list-disc list-inside mb-4">
-            <li>
-              Assisted in synthesizing GO (Graphene Oxide) for FDM 3D printing medical devices and electronic
-              components.
-            </li>
-          </ul>
-
-          <h2 className="text-2xl font-semibold mt-6 mb-2">Projects</h2>
-          <h3 className="text-xl font-medium">Underwater ROV, Duke Robotics Club</h3>
-          <p className="italic mb-2">September 2024 - Present</p>
-          <ul className="list-disc list-inside mb-4">
-            <li>
-              Designed and manufactured major components of an autonomous submarine using Solidworks CAD and Ansys
-              Fluent.
-            </li>
-          </ul>
-
-          <h3 className="text-xl font-medium">Science Olympiad, Path Following Robot</h3>
-          <p className="italic mb-2">Spring 2024</p>
-          <ul className="list-disc list-inside mb-4">
-            <li>Science Olympiad Makerspace Vice President, Fall 2023 - Spring 2024</li>
-            <li>
-              Designed and built a Path-Following Robot for Science Olympiad's National Competition, utilizing an
-              Arduino Uno, DC motors, encoders, and a custom closed-loop control
-            </li>
-          </ul>
-
-          <h3 className="text-xl font-medium">FRC Robotics</h3>
-          <p className="italic mb-2">Winter 2024</p>
-          <ul className="list-disc list-inside mb-4">
-            <li>Robotics Team Captain and Mechanical Lead from Fall 2022 - Spring 2024</li>
-            <li>
-              Designed and manufactured a pivoting disk shooter, electronics system (really general), and drivetrain for
-              my robotics team using Autodesk Fusion CAD, CAM, and FEA.
-            </li>
-          </ul>
-
-          <h3 className="text-xl font-medium">Self-Guided Rocket</h3>
-          <p className="italic mb-2">Summer 2023</p>
-          <ul className="list-disc list-inside mb-4">
-            <li>
-              Designed, built, and flew a ~1m long canard-guided rocket, utilizing an IMU and Arduino Uno, and wrote
-              closed-loop control to maintain trajectory.
-            </li>
+            <li>High school diploma, Summa Cum Laude, 3.95 GPA</li>
           </ul>
 
           <h2 className="text-2xl font-semibold mt-6 mb-2">Technical Skills</h2>
-          <p>
-            <strong>Software:</strong> Solidworks; Siemens NX; Autodesk Fusion; Ansys Fluent; Adobe Photoshop,
-            Illustrator; Microsoft Office Suite.
+          <p className="mb-2">
+            <strong>Software:</strong> Autodesk Fusion CAD, CAM, FEA; Siemens NX CAD; Solidworks CAD; Ansys Fluent CFD;
+            Adobe Photoshop, Illustrator; Microsoft Office suite.
           </p>
-          <p>
-            <strong>Hardware:</strong> FDM 3D Printing, Waterjet, CNC Machining
+          <p className="mb-4">
+            <strong>Languages:</strong> MATLAB, Python, Java, Arduino C++
           </p>
-          <p>
-            <strong>Programming Languages:</strong> Python, Java, Arduino C++
-          </p>
+
+          <h2 className="text-2xl font-semibold mt-6 mb-2">Projects</h2>
+          <h3 className="text-xl font-medium">Autonomous UAV</h3>
+          <p className="italic mb-2">Summer 2025</p>
+          <ul className="list-disc list-inside mb-4">
+            <li>
+              Designed and flew an autonomous UAV. The fixed-wing UAV weighs 2kg and has a wingspan of 1 meter. Used CFD
+              to optimize and validate geometries.
+            </li>
+          </ul>
+
+          <h3 className="text-xl font-medium">Underwater ROV - Duke Robotics Club</h3>
+          <p className="italic mb-2">September 2024 - present</p>
+          <ul className="list-disc list-inside mb-4">
+            <li>
+              Designed and machined major mechanical components of an autonomous submarine using Solidworks CAD and
+              Ansys Fluent.
+            </li>
+          </ul>
+
+          <h3 className="text-xl font-medium">Self-guided Rocket</h3>
+          <p className="italic mb-2">Summer 2023</p>
+          <ul className="list-disc list-inside mb-4">
+            <li>
+              Designed, built, and flew a ~1m long canard-guided rocket. Used an IMU and Arduino uno for closed-loop
+              control to maintain trajectory.
+            </li>
+          </ul>
+
+          <h3 className="text-xl font-medium">FRC Robot</h3>
+          <p className="italic mb-2">Winter 2024</p>
+          <ul className="list-disc list-inside mb-4">
+            <li>
+              Designed and manufactured a Pivoting disk shooter, electronics system, and drivetrain for my robotics team
+              using Autodesk Fusion CAD, CAM, and FEA.
+            </li>
+          </ul>
+
+          <h2 className="text-2xl font-semibold mt-6 mb-2">Experience</h2>
+          <h3 className="text-xl font-medium">Unpaid Intern</h3>
+          <p className="italic mb-2">Summer 2025</p>
+          <p className="font-medium mb-2">University of Utah Aerospace Engineering Department</p>
+          <ul className="list-disc list-inside mb-4">
+            <li>
+              Designed a 4-axis robot arm to move a model in a wind tunnel. Used MATLAB to simulate the robot arm in
+              real-time operation and collect torque values.
+            </li>
+          </ul>
+
+          <h3 className="text-xl font-medium">Freelance engineer</h3>
+          <p className="italic mb-2">Summer 2024 - present</p>
+          <p className="font-medium mb-2">Self-employed</p>
+          <ul className="list-disc list-inside mb-4">
+            <li>
+              Used CAD and 3D printing to validate a product before being launched for large-scale manufacturing.
+              Provided a working prototype to the client in under 2 weeks.
+            </li>
+          </ul>
+
+          <h2 className="text-2xl font-semibold mt-6 mb-2">Leadership</h2>
+          <h3 className="text-xl font-medium">Duke Robotics Club Chief Engineer</h3>
+          <p className="italic mb-2">Fall 2025 - Present</p>
+
+          <h3 className="text-xl font-medium">High School Robotics Team Captain and Mechanical Lead</h3>
+          <p className="italic mb-2">Fall 2022 - Spring 2024</p>
+
+          <h3 className="text-xl font-medium">Science Olympiad Makerspace Vice President</h3>
+          <p className="italic mb-2">Fall 2023 - Spring 2024</p>
         </div>
       </section>
     </div>
