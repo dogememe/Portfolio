@@ -46,7 +46,9 @@ export default function UAVProject() {
           </CardHeader>
           <CardContent>
             <p className="text-muted-foreground mb-4">
-              {"Unfortunately, the first flight did not go as planned.  The EDFs did not have the thrust I expected, so the UAV could not accelerate quickly enough to take flight.  Fortunately, every system independly worked, so version two will be ready soon!"}                                                      
+              {
+                "Unfortunately, the first flight did not go as planned.  The EDFs did not have the thrust I expected, so the UAV could not accelerate quickly enough to take flight.  Fortunately, every system independly worked, so version two will be ready soon!"
+              }
             </p>
             <div className="aspect-video w-full rounded-lg overflow-hidden">
               <iframe
@@ -81,7 +83,8 @@ export default function UAVProject() {
                 <li>Integrate a payload bay for sensor carrying or remote payload deployment </li>
               </ul>
               <p className="text-muted-foreground">
-                I love to push the boundaries of my skills, and this is a great project to do so! I flew the UAV first in the summer of 2025 and plan fly it back at Duke during fall semester 2025.        
+                I love to push the boundaries of my skills, and this is a great project to do so! I flew the UAV first
+                in the summer of 2025 and plan fly it back at Duke during fall semester 2025.
               </p>
             </div>
           </CardContent>
@@ -267,6 +270,14 @@ export default function UAVProject() {
       <section className="container mx-auto px-4 py-16">
         <h2 className="mb-8 text-center text-3xl font-bold tracking-tighter sm:text-4xl">Project Gallery</h2>
         <div className="grid gap-4 md:grid-cols-2">
+          <div className="relative aspect-video overflow-hidden rounded-lg">
+            <Image
+              src="https://zmtbsodvdekwtp1d.public.blob.vercel-storage.com/Plane%20CFD.png"
+              alt="UAV CFD Analysis"
+              fill
+              className="object-cover"
+            />
+          </div>
           <div className="relative aspect-video overflow-hidden rounded-lg">
             <Image
               src="https://zmtbsodvdekwtp1d.public.blob.vercel-storage.com/NEwPlane-vtREgGyfPQJehXX3fh3fPy6N8GMGVS.png"
